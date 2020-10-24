@@ -19,6 +19,10 @@ class App extends Component {
   }
 
   handleClick = () => {
+    if (this.state.input === "") {
+      return;
+    }
+
     this.setState((currentState) => { 
       return {
         tasks: currentState.tasks.concat(currentState.input)
@@ -36,7 +40,6 @@ class App extends Component {
         tasks: currentState.tasks.filter((task) => currentState.tasks.indexOf(task) !== index ),
       }
     });
-    console.log(this.state.tasks, index);
   }
 
 
