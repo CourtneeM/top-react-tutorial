@@ -8,13 +8,11 @@ class App extends Component {
 
     this.state = {
       input: "",
-      tasks: ['clean'],
+      tasks: [],
     }
   }
 
   handleInput = (e) => {
-    const tasks = this.state.tasks;
-
     this.setState({
         input: e.target.value,
     });
@@ -23,17 +21,24 @@ class App extends Component {
   handleClick = () => {
     this.setState((currentState) => { 
       return {
-        tasks: currentState.tasks.concat('yolooo')
+        tasks: currentState.tasks.concat(currentState.input)
       }
     });
     
-    console.log(this.state);
     this.setState({
       input: "",
     });
-
-
   }
+
+  handleDelete = (index) => {
+    this.setState((currentState) => {
+      return {
+        tasks: currentState.tasks.filter((task) => currentState.tasks.indexOf(task) !== index ),
+      }
+    });
+    console.log(this.state.tasks, index);
+  }
+
 
 
   render () {
@@ -46,7 +51,7 @@ class App extends Component {
         </div>
         <div className="display-tasks">
           <h3>Tasks:</h3>
-          <Overview />
+          {this.state.tasks.map((task, index) => <Overview task={task} handleDelete={() => this.handleDelete(index)} />) }
         </div>
       </div>
     );

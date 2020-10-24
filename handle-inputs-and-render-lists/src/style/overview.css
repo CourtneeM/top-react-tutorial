@@ -1,0 +1,11 @@
+.task-list {
+  display: flex;
+  justify-content: space-around;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.task-list p:last-child {
+  color: red;
+  cursor: pointer;
+}
