@@ -1,0 +1,11 @@
+.personal-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.personal-container div {
+  flex-basis: 35%;
+}

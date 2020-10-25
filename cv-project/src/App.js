@@ -6,7 +6,7 @@ import Experience from './components/Experience.js';
 function App() {
   return (
     <div className="App">
-      
+      <Personal />
     </div>
   );
 }
