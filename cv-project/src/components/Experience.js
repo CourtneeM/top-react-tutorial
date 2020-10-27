@@ -42,6 +42,10 @@ class Experience extends Component {
       if (this.state[prop] === "") {
         return;
       }
+
+      if (!this.state.currentEmployer && this.state.endDate === null) {
+        return;
+      }
     }
 
     this.setState({
