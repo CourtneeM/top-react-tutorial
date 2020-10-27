@@ -33,6 +33,10 @@ class Experience extends Component {
       return;
     }
 
+    if (this.state.mainTasks === 5) {
+      return;
+    }
+
     this.setState((currentState) => {
       return {
         mainTasks: currentState.mainTasks.concat(this.state.currentTask),
@@ -97,11 +101,19 @@ class Experience extends Component {
             <label>Main Tasks (max 5): </label>
             {this.state.edit
               ? <>
-                  <input type="text" value={this.state.currentTask} onChange={(e) => this.handleChange(e, "currentTask")} />
-                  <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
+                  {this.state.mainTasks.length === 5     
+                    ? <> 
+                        <input type="text" value={this.state.currentTask} disabled />
+                        <i className="far fa-plus-square" disabled ></i>
+                      </>
+                    : <>
+                        <input type="text" value={this.state.currentTask} onChange={(e) => this.handleChange(e, "currentTask")} />
+                        <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
+                      </>
+                  }
                 </>
               : <>
-                  <input type="text" disabled />
+                  <input type="text" value={this.state.currentTask} disabled />
                   <i className="far fa-plus-square" disabled ></i>
                 </>
             }
