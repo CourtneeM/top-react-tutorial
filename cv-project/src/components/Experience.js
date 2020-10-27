@@ -38,22 +38,24 @@ class Experience extends Component {
   }
 
   handleEditSubmit = () => {
-    for (let prop in this.state) {
-      if (this.state.companyName === "" && this.state.positionTitle === "" && this.state.startDate === "") {
-        return;
-      }
+    if (this.state.companyName === "" && this.state.positionTitle === "" && this.state.startDate === "") {
+      return;
+    }
 
-      if (this.state.currentTask !== "") {
-        return;
-      }
+    if (this.state.currentTask !== "") {
+      return;
+    }
 
-      if (this.state.mainTasks.length === 0) {
-        return;
-      }
+    if (this.state.mainTasks.length === 0) {
+      return;
+    }
 
-      if (!this.state.currentEmployer && this.state.endDate === null) {
-        return;
-      }
+    if (!this.state.currentEmployer && this.state.endDate === null) {
+      return;
+    }
+
+    if (this.state.endDate < this.state.startDate) {
+      return;
     }
 
     this.setState({
