@@ -17,9 +17,15 @@ class Experience extends Component {
   }
 
   handleChange = (e, property) => {
-    this.setState({
-      [property]: e.target.value,
-    });
+    property === "currentEmployer"
+      ? this.setState({ 
+          currentEmployer: !this.state.currentEmployer,
+        })
+      : this.setState({ 
+          [property]: e.target.value,
+        });
+
+    console.log(e.target.checked, this.state.currentEmployer);
   }
 
   handleEditSubmit = () => {
@@ -50,7 +56,7 @@ class Experience extends Component {
           </div>
           <div className="current-employer">
             <label>Current Employer: </label>
-            <input type="checkbox" />
+            <input type="checkbox" onChange={(e) => this.handleChange(e, "currentEmployer")} />
           </div>
           <div className="main-job-tasks">
             <label>Main Tasks (max 5): </label>
