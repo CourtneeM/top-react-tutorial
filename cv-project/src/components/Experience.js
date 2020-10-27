@@ -39,7 +39,15 @@ class Experience extends Component {
 
   handleEditSubmit = () => {
     for (let prop in this.state) {
-      if (this.state[prop] === "") {
+      if (this.state.companyName === "" && this.state.positionTitle === "" && this.state.startDate === "") {
+        return;
+      }
+
+      if (this.state.currentTask !== "") {
+        return;
+      }
+
+      if (this.state.mainTasks.length === 0) {
         return;
       }
 
@@ -52,7 +60,6 @@ class Experience extends Component {
       edit: !this.state.edit
     });
   }
-
 
   render() {
     return (
