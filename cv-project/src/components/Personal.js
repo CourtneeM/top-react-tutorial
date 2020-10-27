@@ -6,7 +6,7 @@ class Personal extends Component {
     super(props);
 
     this.state = {
-      firstName: "a",
+      firstName: "",
       lastName: "",
       email: "",
       phoneNumber: null,
@@ -33,6 +33,8 @@ class Personal extends Component {
     console.log(this.state)
   }
 
+  // fix styling when in edit mode -- currently too much margin between inputs
+
   render() {
     return (
       <div>
@@ -41,26 +43,26 @@ class Personal extends Component {
           <div className="first-name-container">
             <label>First Name: </label>
             {this.state.edit 
-              ? <input type="text" onChange={(e) => this.handleChange(e, "firstName")}/> 
+              ? <input type="text" value={this.state.firstName} onChange={(e) => this.handleChange(e, "firstName")}/> 
               : <p>{this.state.firstName}</p> }
           </div>
           <div className="last-name-container">
             <label>Last Name: </label>
             {this.state.edit
-              ? <input type="text" onChange={(e) => this.handleChange(e, "lastName")} /> 
+              ? <input type="text" value={this.state.lastName} onChange={(e) => this.handleChange(e, "lastName")} /> 
               : <p>{this.state.lastName}</p>}
           </div>
           <div className="email-container">
             <label>Email: </label>
             {this.state.edit 
-              ? <input type="email" onChange={(e) => this.handleChange(e, "email")} /> 
+              ? <input type="email" value={this.state.email} onChange={(e) => this.handleChange(e, "email")} /> 
               : <p>{this.state.email}</p>
             }
           </div>
           <div className="phone-number-container">
             <label>Phone Number: </label>
             {this.state.edit
-              ? <input type="number" onChange={(e) => this.handleChange(e, "phoneNumber")} />
+              ? <input type="number" value={this.state.phoneNumber} onChange={(e) => this.handleChange(e, "phoneNumber")} />
               : <p>{this.state.phoneNumber}</p>
             }
           </div>
