@@ -1,0 +1,24 @@
+.education-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 600px;
+  margin: 0 auto;
+}
+
+.education-container div {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 95%;
+}
+
+.education-container .title-of-study, .education-container .date-of-study {
+  flex-basis: 45%;
+  margin: 8px 2.5%;
+}
+
+.education-container .submit-section-btn {
+  margin-top: 20px;
+  width: 160px;
+  height: 25px;
+}

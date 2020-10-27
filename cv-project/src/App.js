@@ -6,7 +6,12 @@ import Experience from './components/Experience.js';
 function App() {
   return (
     <div className="App">
-      <Personal />
+      <div className="cv-container">
+        <h1>CV Application</h1>
+        <Personal />
+        <Education />
+        <Experience />
+      </div>
     </div>
   );
 }

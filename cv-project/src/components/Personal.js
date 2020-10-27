@@ -31,6 +31,7 @@ class Personal extends Component {
             <label>Phone Number: </label>
             <input type="number" value={this.state.phoneNumber} />
           </div>
+        <button className="submit-section-btn">Submit Section</button>
         </div>
       </div>
     );
