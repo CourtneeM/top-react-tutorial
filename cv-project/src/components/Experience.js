@@ -6,9 +6,28 @@ class Experience extends Component {
     super(props);
 
     this.state = {
-      
+      companyName: "",
+      positionTitle: "",
+      currentEmployer: false,
+      mainTasks: [],
+      startDate: "",
+      endDate: "",
+      edit: true,
     }
   }
+
+  handleChange = (e, property) => {
+    this.setState({
+      [property]: e.target.value,
+    });
+  }
+
+  handleEditSubmit = () => {
+    this.setState({
+      edit: !this.state.edit
+    });
+  }
+
 
   render() {
     return (
@@ -17,11 +36,17 @@ class Experience extends Component {
         <div className="experience-container">
           <div className="company-name">
             <label>Company Name: </label>
-            <input type="text" />
+            {this.state.edit
+              ? <input type="text" value={this.state.companyName} onChange={(e) => this.handleChange(e, "companyName")} />
+              : <p>{this.state.companyName}</p>
+            }
           </div>
           <div className="position-title">
             <label>Position: </label>
-            <input type="text" />
+            {this.state.edit
+              ? <input type="text" value={this.state.positionTitle} onChange={(e) => this.handleChange(e, "positionTitle")} />
+              : <p>{this.state.positionTitle}</p>
+            }
           </div>
           <div className="current-employer">
             <label>Current Employer: </label>
@@ -34,13 +59,19 @@ class Experience extends Component {
           </div>
           <div className="start-date">
             <label>Start Date: </label>
-            <input type="text" />
+            {this.state.edit
+             ? <input type="date" value={this.state.startDate} onChange={(e) => this.handleChange(e, "startDate")} />
+             : <p>{this.state.startDate}</p>
+            }
           </div>
           <div className="end-date">
             <label>End Date: </label>
-            <input type="text" />
+            {this.state.edit
+             ? <input type="date" value={this.state.endDate} onChange={(e) => this.handleChange(e, "endDate")} />
+             : <p>{this.state.endDate}</p>
+            }
           </div>
-          <button className="submit-section-btn">Submit Section</button>
+          <button className="submit-section-btn" onClick={this.handleEditSubmit}>Submit Section</button>
         </div>
       </div>
     );
