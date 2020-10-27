@@ -6,9 +6,32 @@ class Education extends Component {
     super(props);
 
     this.state = {
-      
+      schoolName: "",
+      titleOfStudy: "",
+      graduationDate: "",
+      edit: true,
     }
   }
+
+  handleChange = (e, property) => {
+    this.setState({
+      [property]: e.target.value,
+    });
+  }
+
+  handleEditSubmit = () => {
+    for (let prop in this.state) {
+      if (this.state[prop] === "") {
+        return;
+      }
+    }
+
+    this.setState({
+      edit: !this.state.edit,
+    })
+  }
+
+  // fix edit mode styling -- too much margin
 
   render() {
     return (
@@ -17,17 +40,26 @@ class Education extends Component {
         <div className="education-container">
           <div className="school-name">
             <label>School Name: </label>
-            <input type="text" />
+            {this.state.edit
+              ? <input type="text" value={this.state.schoolName} onChange={(e) => this.handleChange(e, "schoolName")} />
+              : <p>{this.state.schoolName}</p>
+            }
           </div>
           <div className="title-of-study">
             <label>Title of Study: </label>
-            <input type="text" />
+            {this.state.edit
+              ? <input type="text" value={this.state.titleOfStudy} onChange={(e) => this.handleChange(e, "titleOfStudy")} />
+              : <p>{this.state.titleOfStudy}</p>
+            }
           </div>
           <div className="date-of-study">
-            <label>Date of Study: </label>
-            <input type="text" />
+            <label>Graduation Date: </label>
+            {this.state.edit
+             ? <input type="date" value={this.state.graduationDate} onChange={(e) => this.handleChange(e, "graduationDate")} />
+             : <p>{this.state.graduationDate}</p>
+            }
           </div>
-          <button className="submit-section-btn">Submit Section</button>
+          <button className="submit-section-btn" onClick={ this.handleEditSubmit }>Submit Section</button>
         </div>
       </div>
     );
