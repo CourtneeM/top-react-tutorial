@@ -6,7 +6,7 @@ class Personal extends Component {
     super(props);
 
     this.state = {
-      firstName: "",
+      firstName: "a",
       lastName: "",
       email: "",
       phoneNumber: null,
@@ -21,6 +21,12 @@ class Personal extends Component {
   }
 
   handleEditSubmit = () => {
+    for (let prop in this.state) {
+      if (this.state[prop] === "" || this.state[prop] === null) {
+        return;
+      }
+    }
+
     this.setState({
       edit: !this.state.edit,
     });
