@@ -21,6 +21,7 @@ class Experience extends Component {
     property === "currentEmployer"
       ? this.setState({ 
           currentEmployer: !this.state.currentEmployer,
+          endDate: null,
         })
       : this.setState({ 
           [property]: e.target.value,
@@ -37,6 +38,12 @@ class Experience extends Component {
   }
 
   handleEditSubmit = () => {
+    for (let prop in this.state) {
+      if (this.state[prop] === "") {
+        return;
+      }
+    }
+
     this.setState({
       edit: !this.state.edit
     });
@@ -84,7 +91,9 @@ class Experience extends Component {
           <div className="end-date">
             <label>End Date: </label>
             {this.state.edit
-             ? <input type="date" value={this.state.endDate} onChange={(e) => this.handleChange(e, "endDate")} />
+             ? this.state.currentEmployer 
+               ?  <input type="date" disabled />
+               :  <input type="date" value={this.state.endDate} onChange={(e) => this.handleChange(e, "endDate")} />
              : <p>{this.state.endDate}</p>
             }
           </div>
