@@ -9,6 +9,7 @@ class Experience extends Component {
       companyName: "",
       positionTitle: "",
       currentEmployer: false,
+      currentTask: "",
       mainTasks: [],
       startDate: "",
       endDate: "",
@@ -24,8 +25,15 @@ class Experience extends Component {
       : this.setState({ 
           [property]: e.target.value,
         });
+  }
 
-    console.log(e.target.checked, this.state.currentEmployer);
+  handleAddTask = () => {
+    this.setState((currentState) => {
+      return {
+        mainTasks: currentState.mainTasks.concat(this.state.currentTask),
+        currentTask: "",
+      }
+    });
   }
 
   handleEditSubmit = () => {
@@ -55,13 +63,16 @@ class Experience extends Component {
             }
           </div>
           <div className="current-employer">
-            <label>Current Employer: </label>
-            <input type="checkbox" onChange={(e) => this.handleChange(e, "currentEmployer")} />
+            <label>Current Employer: </label>  
+            {this.state.edit
+              ? <input type="checkbox" checked={this.state.currentEmployer} onChange={(e) => this.handleChange(e, "currentEmployer")} />
+              : <input type="checkbox" checked={this.state.currentEmployer} disabled />
+            }
           </div>
           <div className="main-job-tasks">
             <label>Main Tasks (max 5): </label>
-            <input type="text" />
-            <i className="far fa-plus-square"></i>
+            <input type="text" value={this.state.currentTask} onChange={(e) => this.handleChange(e, "currentTask")} />
+            <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
           </div>
           <div className="start-date">
             <label>Start Date: </label>
