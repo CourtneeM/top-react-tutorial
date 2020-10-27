@@ -91,8 +91,16 @@ class Experience extends Component {
           </div>
           <div className="main-job-tasks">
             <label>Main Tasks (max 5): </label>
-            <input type="text" value={this.state.currentTask} onChange={(e) => this.handleChange(e, "currentTask")} />
-            <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
+            {this.state.edit
+              ? <>
+                  <input type="text" value={this.state.currentTask} onChange={(e) => this.handleChange(e, "currentTask")} />
+                  <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
+                </>
+              : <>
+                  <input type="text" disabled />
+                  <i className="far fa-plus-square" disabled ></i>
+                </>
+            }
           </div>
           <div className="start-date">
             <label>Start Date: </label>
@@ -118,5 +126,3 @@ class Experience extends Component {
 }
 
 export default Experience;
-
-// If current employer checkbox is checked, disable End Date input.

@@ -35,6 +35,10 @@
   margin: 0 0 10px 10px;
 }
 
+.experience-container > div {
+  margin: 3px 0;
+}
+
 .experience-container .current-employer {
   margin: 15px 0;
 }
