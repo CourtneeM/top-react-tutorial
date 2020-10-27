@@ -31,8 +31,6 @@ class Education extends Component {
     })
   }
 
-  // fix edit mode styling -- too much margin
-
   render() {
     return (
       <div>

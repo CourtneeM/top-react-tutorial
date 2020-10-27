@@ -33,8 +33,6 @@ class Personal extends Component {
     console.log(this.state)
   }
 
-  // fix styling when in edit mode -- currently too much margin between inputs
-
   render() {
     return (
       <div>

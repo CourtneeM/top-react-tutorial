@@ -12,6 +12,15 @@
   flex-basis: 95%;
 }
 
+.education-container p {
+  margin: 2.2px 0;
+}
+
+.education-container input {
+  height: 21;
+  font-size: 16px;
+}
+
 .education-container .title-of-study, .education-container .date-of-study {
   flex-basis: 45%;
   margin: 8px 2.5%;
