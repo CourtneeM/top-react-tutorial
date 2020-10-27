@@ -6,8 +6,21 @@ class Personal extends Component {
     super(props);
 
     this.state = {
-
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: null,
     }
+  }
+
+  handleChange = (e, property) => {
+    this.setState({
+      [property]: e.target.value, 
+    })
+  }
+
+  handleSubmit = () => {
+    // use to display values without input field
   }
 
   render() {
@@ -17,21 +30,25 @@ class Personal extends Component {
         <div className="personal-container">
           <div className="first-name-container">
             <label>First Name: </label>
-            <input type="text" value={this.state.firstName} />
+            <input type="text" onChange={(e) => this.handleChange(e, "firstName") }/>
           </div>
           <div className="last-name-container">
             <label>Last Name: </label>
-            <input type="text" value={this.state.lastName} />
+            <input type="text" onChange={(e) => this.handleChange(e, "lastName") } />
           </div>
           <div className="email-container">
             <label>Email: </label>
-            <input type="email" value={this.state.email} />
+            <input type="email" onChange={(e) => this.handleChange(e, "email") } />
           </div>
           <div className="phone-number-container">
             <label>Phone Number: </label>
-            <input type="number" value={this.state.phoneNumber} />
+            <input type="number" onChange={(e) => this.handleChange(e, "phoneNumber") } />
           </div>
-        <button className="submit-section-btn">Submit Section</button>
+        <button 
+          className="submit-section-btn" 
+          onClick={ this.handleSubmit }>
+            Submit Section
+        </button>
         </div>
       </div>
     );
