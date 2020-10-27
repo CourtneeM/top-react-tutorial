@@ -10,6 +10,7 @@ class Personal extends Component {
       lastName: "",
       email: "",
       phoneNumber: null,
+      edit: true,
     }
   }
 
@@ -19,8 +20,11 @@ class Personal extends Component {
     })
   }
 
-  handleSubmit = () => {
-    // use to display values without input field
+  handleEditSubmit = () => {
+    this.setState({
+      edit: !this.state.edit,
+    });
+    console.log(this.state)
   }
 
   render() {
@@ -30,25 +34,34 @@ class Personal extends Component {
         <div className="personal-container">
           <div className="first-name-container">
             <label>First Name: </label>
-            <input type="text" onChange={(e) => this.handleChange(e, "firstName") }/>
+            {this.state.edit 
+              ? <input type="text" onChange={(e) => this.handleChange(e, "firstName")}/> 
+              : <p>{this.state.firstName}</p> }
           </div>
           <div className="last-name-container">
             <label>Last Name: </label>
-            <input type="text" onChange={(e) => this.handleChange(e, "lastName") } />
+            {this.state.edit
+              ? <input type="text" onChange={(e) => this.handleChange(e, "lastName")} /> 
+              : <p>{this.state.lastName}</p>}
           </div>
           <div className="email-container">
             <label>Email: </label>
-            <input type="email" onChange={(e) => this.handleChange(e, "email") } />
+            {this.state.edit 
+              ? <input type="email" onChange={(e) => this.handleChange(e, "email")} /> 
+              : <p>{this.state.email}</p>
+            }
           </div>
           <div className="phone-number-container">
             <label>Phone Number: </label>
-            <input type="number" onChange={(e) => this.handleChange(e, "phoneNumber") } />
+            {this.state.edit
+              ? <input type="number" onChange={(e) => this.handleChange(e, "phoneNumber")} />
+              : <p>{this.state.phoneNumber}</p>
+            }
           </div>
-        <button 
-          className="submit-section-btn" 
-          onClick={ this.handleSubmit }>
-            Submit Section
-        </button>
+        {this.state.edit 
+          ? <button className="submit-section-btn" onClick={ this.handleEditSubmit }>Submit Section</button>
+          : <button className="submit-section-btn" onClick={ this.handleEditSubmit }>Edit Section</button>
+        }
         </div>
       </div>
     );
