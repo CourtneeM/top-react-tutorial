@@ -29,6 +29,10 @@ class Experience extends Component {
   }
 
   handleAddTask = () => {
+    if (this.state.currentTask === "") {
+      return;
+    }
+
     this.setState((currentState) => {
       return {
         mainTasks: currentState.mainTasks.concat(this.state.currentTask),
