@@ -73,14 +73,19 @@
   border: 1px solid #ccc;
 }
 
-.experience-container .main-job-tasks .display-tasks div{
+.experience-container .main-job-tasks .display-tasks div {
   display: flex;
   justify-content: space-around;
   width: 550px;
 }
 
-.experience-container .main-job-tasks i {
+.experience-container .main-job-tasks .display-tasks p {
+  width: 70%;
+}
+
+.experience-container .main-job-tasks .display-tasks div i {
   padding-top: 5px;
+  width: 30%;
   font-size: 1.2rem;
 }
         

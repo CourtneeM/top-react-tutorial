@@ -17,13 +17,6 @@ class Experience extends Component {
     }
   }
 
-
-  //
-  //  DISPLAY TASKS UNDER MAIN TASKS SECTION
-  //  IN EDIT MODE HAVE A DELETE BUTTON NEXT TO EACH
-  //  IN SUBMITTED MODE JUST DISPLAY TASKS - NO DELETE BUTTON
-  //
-
   handleChange = (e, property) => {
     property === "currentEmployer"
       ? this.setState({ 
@@ -138,6 +131,15 @@ class Experience extends Component {
               : <>
                   <input type="text" value={this.state.currentTask} disabled />
                   <i className="far fa-plus-square" disabled ></i>
+                  <div className="display-tasks">{this.state.mainTasks.map((task, index) => {
+                          return (
+                            <div>
+                              <p>{task}</p>
+                            </div>
+                          )
+                        }
+                        )}
+                  </div>
                 </>
             }
           </div>
