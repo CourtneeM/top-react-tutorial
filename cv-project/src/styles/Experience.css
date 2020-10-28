@@ -65,3 +65,22 @@
 .experience-container .company-name, .experience-container .position-title, .experience-container .start-date, .experience-container .end-date {
   margin: 0 15px;
 }
+
+.experience-container .main-job-tasks .display-tasks {
+  display: flex;
+  flex-wrap: wrap;
+  width: 550px;
+  border: 1px solid #ccc;
+}
+
+.experience-container .main-job-tasks .display-tasks div{
+  display: flex;
+  justify-content: space-around;
+  width: 550px;
+}
+
+.experience-container .main-job-tasks i {
+  padding-top: 5px;
+  font-size: 1.2rem;
+}
+        

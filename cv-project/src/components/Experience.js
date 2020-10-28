@@ -17,6 +17,13 @@ class Experience extends Component {
     }
   }
 
+
+  //
+  //  DISPLAY TASKS UNDER MAIN TASKS SECTION
+  //  IN EDIT MODE HAVE A DELETE BUTTON NEXT TO EACH
+  //  IN SUBMITTED MODE JUST DISPLAY TASKS - NO DELETE BUTTON
+  //
+
   handleChange = (e, property) => {
     property === "currentEmployer"
       ? this.setState({ 
@@ -42,6 +49,12 @@ class Experience extends Component {
         mainTasks: currentState.mainTasks.concat(this.state.currentTask),
         currentTask: "",
       }
+    });
+  }
+
+  handleDeleteTask = (index) => {
+    this.setState({
+        mainTasks: this.state.mainTasks.filter((task) => this.state.mainTasks.indexOf(task) !== index),
     });
   }
 
@@ -111,6 +124,16 @@ class Experience extends Component {
                         <i className="far fa-plus-square" onClick={this.handleAddTask} ></i>
                       </>
                   }
+                  <div className="display-tasks">{this.state.mainTasks.map((task, index) => {
+                          return (
+                            <div>
+                              <p>{task}</p>
+                              <i className="fas fa-trash-alt" onClick={() => this.handleDeleteTask(index)}></i>
+                            </div>
+                          )
+                        }
+                        )}
+                  </div>
                 </>
               : <>
                   <input type="text" value={this.state.currentTask} disabled />
