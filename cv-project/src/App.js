@@ -1,5 +1,5 @@
 import './App.css';
-import Personal from './components/Personal.js';
+import PersonalHooks from './components/PersonalHooks.js';
 import Education from './components/Education.js';
 import Experience from './components/Experience.js';
 
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <div className="cv-container">
         <h1>CV Application</h1>
-        <Personal />
+        <PersonalHooks />
         <Education />
         <Experience />
       </div>
