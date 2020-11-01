@@ -1,7 +1,7 @@
 import './App.css';
 import PersonalHooks from './components/PersonalHooks.js';
 import EducationHooks from './components/EducationHooks.js';
-import Experience from './components/Experience.js';
+import ExperienceHooks from './components/ExperienceHooks.js';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <h1>CV Application</h1>
         <PersonalHooks />
         <EducationHooks />
-        <Experience />
+        <ExperienceHooks />
       </div>
     </div>
   );
