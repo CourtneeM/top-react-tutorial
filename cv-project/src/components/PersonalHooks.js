@@ -3,9 +3,9 @@ import '../styles/Personal.css'
 
 const PersonalHooks = () => {
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [phoneNumber, setPhoneNumber] = useState(null);
   const [edit, setEdit] = useState(true);
 
