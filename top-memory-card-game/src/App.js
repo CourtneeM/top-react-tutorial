@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header />
       <Score scores={{currentScore, maxScore}}  />
-      <Game currentScore={{currentScore, getCurrentScore}} />
+      <Game currentScore={{currentScore, getCurrentScore}} maxScore={{maxScore, getMaxScore}} />
     </div>
   );
 }

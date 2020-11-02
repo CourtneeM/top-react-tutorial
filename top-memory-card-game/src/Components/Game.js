@@ -1,16 +1,28 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Cards from './Cards.js';
 
-function Game({currentScore: {currentScore, getCurrentScore}}) {
+function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScore, getMaxScore} }) {
   
   const addPointHandler = () => {
     getCurrentScore(currentScore + 1);
   }
 
+  const resetCurrentScore = () => {
+    getCurrentScore(0);
+  }
+
+  useEffect(() => {
+    if (maxScore < currentScore) {
+      getMaxScore(maxScore + 1);
+    }
+  }, [currentScore]);
+
+  
+
 
   return (
     <div className="game-container">
-      <Cards addPoint={addPointHandler}/>
+      <Cards addPoint={addPointHandler} />
     </div>
   )
 }
