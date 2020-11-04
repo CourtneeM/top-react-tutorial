@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import Cards from './Cards.js';
+import '../Styles/Game.css';
 
 function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScore, getMaxScore} }) {
   
