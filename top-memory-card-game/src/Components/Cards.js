@@ -4,18 +4,18 @@ import '../Styles/Cards.css';
 function Cards({addPoint, resetCurrentScore}) {
 
   const [images, setImages] = useState([
-    {image: 1, clicked: 0}, 
-    {image: 2, clicked: 0},
-    {image: 3, clicked: 0}, 
-    {image: 4, clicked: 0},
-    {image: 5, clicked: 0},
-    {image: 6, clicked: 0},
-    {image: 7, clicked: 0},
-    {image: 8, clicked: 0},
-    {image: 9, clicked: 0},
-    {image: 10, clicked: 0},
-    {image: 11, clicked: 0},
-    {image: 12, clicked: 0},
+    {image: './images/case.png', clicked: 0}, 
+    {image: './images/cpu.png', clicked: 0},
+    {image: './images/gpu.png', clicked: 0}, 
+    {image: './images/headset.png', clicked: 0},
+    {image: './images/keyboard.png', clicked: 0},
+    {image: './images/microphone.png', clicked: 0},
+    {image: './images/monitor.png', clicked: 0},
+    {image: './images/motherboard.png', clicked: 0},
+    {image: './images/mouse.png', clicked: 0},
+    {image: './images/psu.png', clicked: 0},
+    {image: './images/ram.png', clicked: 0},
+    {image: './images/storage.png', clicked: 0},
   ]);
 
   const resetCurrentRound = () => {
@@ -49,7 +49,7 @@ function Cards({addPoint, resetCurrentScore}) {
     <div className="cards-container">
       {images.map((imageObj, index) => (
         <div className="card" onClick={() => handleClick(index)}>
-          <p>{imageObj.image}</p>
+          <img src={imageObj.image}></img>
         </div>
       ))}
     </div>
