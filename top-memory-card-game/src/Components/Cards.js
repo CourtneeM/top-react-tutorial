@@ -46,10 +46,15 @@ function Cards({addPoint, resetCurrentScore}) {
     setImages(newArr);
   }
 
-  const handleClick = (index) => {    
-    addPoint();
+  const handleClick = (index) => { 
     toggleClickedStatus(index);
-    shuffleImages();
+
+    if (images[index].clicked === 2) {
+      return;
+    } else { 
+      addPoint();
+      shuffleImages();
+    }
   }
 
   useEffect(() => {

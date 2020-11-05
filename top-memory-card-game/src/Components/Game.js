@@ -6,12 +6,10 @@ function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScor
   
   const addPoint = () => {
     getCurrentScore(currentScore + 1);
-    console.log('addPoint:',currentScore)
   }
 
   const resetCurrentScore = () => {
     getCurrentScore(0);
-    console.log('resetCurrentScore:',currentScore)
   }
 
   useEffect(() => {
