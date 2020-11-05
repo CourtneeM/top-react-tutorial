@@ -3,6 +3,8 @@ import '../Styles/Cards.css';
 
 function Cards({addPoint, resetCurrentScore}) {
 
+  // RANDOMIZE ARRAY AFTER CLICK
+
   const [images, setImages] = useState([
     {image: './images/case.png', clicked: 0}, 
     {image: './images/cpu.png', clicked: 0},
@@ -18,11 +20,23 @@ function Cards({addPoint, resetCurrentScore}) {
     {image: './images/storage.png', clicked: 0},
   ]);
 
+  const shuffleImages = () => {
+    let tempArr = images;
+    let shuffledImages = [];
+
+    while (tempArr.length > 0) {
+      let randomNumber = Math.floor(Math.random() * tempArr.length);
+      shuffledImages.push(tempArr[randomNumber]);
+      tempArr.splice(randomNumber, 1);
+    }
+    
+    setImages(shuffledImages);
+  }
+
   const resetCurrentRound = () => {
     images.map((image) => {
       image.clicked = 0;
     });
-
     resetCurrentScore();
   }
 
@@ -35,6 +49,7 @@ function Cards({addPoint, resetCurrentScore}) {
   const handleClick = (index) => {    
     addPoint();
     toggleClickedStatus(index);
+    shuffleImages();
   }
 
   useEffect(() => {
