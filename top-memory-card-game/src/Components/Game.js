@@ -9,7 +9,6 @@ function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScor
     console.log('addPoint:',currentScore)
   }
 
-  // PASS DOWN TO CARDS, IF CARD CLICKED IS TRUE AND IS CLICKED AGAIN, THEN RESET GAME
   const resetCurrentScore = () => {
     getCurrentScore(0);
     console.log('resetCurrentScore:',currentScore)

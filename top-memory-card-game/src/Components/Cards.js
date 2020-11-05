@@ -22,6 +22,7 @@ function Cards({addPoint, resetCurrentScore}) {
     images.map((image) => {
       image.clicked = 0;
     });
+
     resetCurrentScore();
   }
 
@@ -34,7 +35,6 @@ function Cards({addPoint, resetCurrentScore}) {
   const handleClick = (index) => {    
     addPoint();
     toggleClickedStatus(index);
-    console.log(images);
   }
 
   useEffect(() => {
@@ -50,7 +50,6 @@ function Cards({addPoint, resetCurrentScore}) {
       {images.map((imageObj, index) => (
         <div className="card" onClick={() => handleClick(index)}>
           <p>{imageObj.image}</p>
-          <p>{imageObj.clicked}</p>
         </div>
       ))}
     </div>
