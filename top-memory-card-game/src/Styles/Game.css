@@ -3,3 +3,9 @@
   width: 80%;
   max-width: 1200px;
 }
+
+@media only screen and (max-width: 768px) {
+  .game-container {
+    margin-top: 30px;
+  }
+}

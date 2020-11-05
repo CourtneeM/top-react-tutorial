@@ -18,3 +18,13 @@
   font-size: 1.1rem;
   font-weight: 600;
 }
+
+@media only screen and (max-width: 768px) {
+  .score-container {
+    position: static;
+  }
+
+  .score-container p {
+    margin: 10px;
+  }
+}
