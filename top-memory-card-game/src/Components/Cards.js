@@ -1,40 +1,56 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../Styles/Cards.css';
 
-function Cards(props) {
+function Cards({addPoint, resetCurrentScore}) {
 
   const [images, setImages] = useState([
-    {image: 1, clicked: false}, 
-    {image: 2, clicked: false},
-    {image: 3, clicked: false}, 
-    {image: 4, clicked: false},
-    {image: 5, clicked: false},
-    {image: 6, clicked: false},
-    {image: 7, clicked: false},
-    {image: 8, clicked: false},
-    {image: 9, clicked: false},
-    {image: 10, clicked: false},
-    {image: 11, clicked: false},
-    {image: 12, clicked: false},
+    {image: 1, clicked: 0}, 
+    {image: 2, clicked: 0},
+    {image: 3, clicked: 0}, 
+    {image: 4, clicked: 0},
+    {image: 5, clicked: 0},
+    {image: 6, clicked: 0},
+    {image: 7, clicked: 0},
+    {image: 8, clicked: 0},
+    {image: 9, clicked: 0},
+    {image: 10, clicked: 0},
+    {image: 11, clicked: 0},
+    {image: 12, clicked: 0},
   ]);
 
-  const handleClick = (index) => {
-    props.addPoint();
+  const resetCurrentRound = () => {
+    images.map((image) => {
+      image.clicked = 0;
+    });
+    resetCurrentScore();
+  }
+
+  const toggleClickedStatus = (index) => {
     let newArr = [...images];
-    newArr[index].clicked = !newArr[index].clicked;
+    newArr[index].clicked = newArr[index].clicked + 1;
     setImages(newArr);
+  }
+
+  const handleClick = (index) => {    
+    addPoint();
+    toggleClickedStatus(index);
     console.log(images);
   }
+
+  useEffect(() => {
+    images.map((image) => {
+      if (image.clicked === 2) {
+        resetCurrentRound();
+      }
+    });
+  });
   
   return (
     <div className="cards-container">
       {images.map((imageObj, index) => (
         <div className="card" onClick={() => handleClick(index)}>
           <p>{imageObj.image}</p>
-          {imageObj.clicked
-            ? <p>True</p>
-            : <p>False</p>
-          }
+          <p>{imageObj.clicked}</p>
         </div>
       ))}
     </div>

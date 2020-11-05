@@ -4,17 +4,20 @@ import '../Styles/Game.css';
 
 function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScore, getMaxScore} }) {
   
-  const addPointHandler = () => {
+  const addPoint = () => {
     getCurrentScore(currentScore + 1);
+    console.log('addPoint:',currentScore)
   }
 
+  // PASS DOWN TO CARDS, IF CARD CLICKED IS TRUE AND IS CLICKED AGAIN, THEN RESET GAME
   const resetCurrentScore = () => {
     getCurrentScore(0);
+    console.log('resetCurrentScore:',currentScore)
   }
 
   useEffect(() => {
     if (maxScore < currentScore) {
-      getMaxScore(maxScore + 1);
+      getMaxScore(currentScore);
     }
   }, [currentScore]);
 
@@ -23,7 +26,7 @@ function Game({currentScore: {currentScore, getCurrentScore}, maxScore: {maxScor
 
   return (
     <div className="game-container">
-      <Cards addPoint={addPointHandler} />
+      <Cards addPoint={addPoint} resetCurrentScore={resetCurrentScore}/>
     </div>
   )
 }
