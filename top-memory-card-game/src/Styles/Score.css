@@ -1,7 +1,8 @@
 .score-container {
   position: absolute;
   top: 0;
-  left: 39.5%;
+  left: 39%;
+  right: 39%;
   display: flex;
   justify-content: space-around;
   text-align: center;
