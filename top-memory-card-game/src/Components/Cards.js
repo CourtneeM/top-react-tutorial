@@ -3,8 +3,6 @@ import '../Styles/Cards.css';
 
 function Cards({addPoint, resetCurrentScore}) {
 
-  // RANDOMIZE ARRAY AFTER CLICK
-
   const [images, setImages] = useState([
     {image: './images/case.png', clicked: 0}, 
     {image: './images/cpu.png', clicked: 0},
